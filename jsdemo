@@ -1,9 +1,11 @@
-// node[0] jsdemo[1] xxx[2]
+#!/usr/bin/env node //使用node方法运行脚本
+
 var fs = require('fs')//使用文件系统模块
 
+// node[0] jsdemo[1] xxx[2] 我需要的参数是第二个
 var dirName = process.argv[2] // 你传的参数是从第 2 个开始的
 
-process.chdir("/Users/zuo/Desktop") // cd ~/Desktop
+
 fs.mkdirSync("./" + dirName) // mkdir $1
 process.chdir("./" + dirName) // cd $1
 fs.mkdirSync('css') // mkdir css
