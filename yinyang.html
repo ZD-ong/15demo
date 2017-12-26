@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>阴阳Demo</title>
+    <style>
+        body {
+            background: #ccc;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #yinyang {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #000000 50%, #000000 100%);
+            position: relative;
+            margin: 100px auto;
+            animation-duration: 3s;
+            animation-name: spin;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            box-shadow: 0 0 50px rgb(0, 0, 0);
+        }
+
+        #yinyang::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            border: 40px solid #000;
+        }
+
+        #yinyang::after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #000;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            border: 40px solid #fff;
+        }
+        /* #yinyang > .one > .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            background: #fff;  
+            }
+            #yinyang::after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            }
+            #yinyang > .two > .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            background: #000;  
+            } */
+    </style>
+</head>
+
+<body>
+    <div id="yinyang">
+
+    </div>
+</body>
+
+</html>
