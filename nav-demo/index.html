@@ -26,7 +26,7 @@
         var hash = {'q': 'qq.com', 'w': 'weibo.com', 'e': 'ele.me', 'r': 'renren.com', 't': 'taobao.com', 'y': 'youtube.com', 'u': 'uc.com' , 'i': 'iqiyi.com', 'o': 'opera.com', 'p': undefined, 'a': 'acfun.tv', 's': 'sohu.com', 'z': 'zhihu.com', 'm': 'www.mcdonalds.com.cn'
 			}
         //取出 localStorage 中的 here 对应的 hash
-        var hashInLocalStorage = JSON.parse(localStorage.getItem('here') || '');
+        var hashInLocalStorage = JSON.parse(localStorage.getItem('here') || 'null');
         //如果有存档，读取存档，也就是存储的 hashInLocalStorage 替换一开始的 hash
         if(hashInLocalStorage){
             hash = hashInLocalStorage;
