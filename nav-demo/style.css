@@ -6,6 +6,10 @@
 a {
     text-decoration: none;
 }
+body {
+    background: url(./wall-min.png) no-repeat center center;
+    background-size: cover;
+}
 kbd {
     border: 1px solid red;
     width: 4em;
@@ -22,20 +26,58 @@ kbd > button {
 }
 kbd:hover > button {
     display: inline-block;
+    cursor: pointer;
+}
+.key {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(to bottom, #292929 0%,#111111 100%);
+    border: 1px solid #373737;
+    color: #c5c5c5;
+    font-family: Helvetica;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #1a1b1c, 0 0 0 2px #1f2020, 0 3px 0 2px #080808;
+    position: relative;
+}
+.row {
+    margin: 20px;
+}
+.row .key {
+    margin: 0 10px;
 }
 main {
+    height: 100vh;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-#mainXXX {
+.wrapper {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+#main {
     display: inline-block;
 }
-#mainXXX > div:nth-child(2) {
-    margin-left: 2em;
+#main > div:nth-child(2) {
+    margin-left: 80px;
 }
-#mainXXX > div:nth-child(3) {
-    margin-left: 4em;
+#main > div:nth-child(3) {
+    margin-left: 40px;
 }
-#mainXXX > div:nth-child(4) {
-    margin-left: 2em;
+#main > div:nth-child(4) {
+    margin-left: -30px;
+}
+.key img {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+}
+.key .text {
+    position: absolute;
+    left: 4px;
+    top: 2px;
 }
