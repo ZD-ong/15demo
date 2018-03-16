@@ -45,5 +45,5 @@ $('.window').on('mouseleave',function(){
         allButtons.eq(n % size).trigger('click')
             .addClass('red')
             .siblings('.red').removeClass('red')
-    }, 1000)
+    }, 3000)
 })
