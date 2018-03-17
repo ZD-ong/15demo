@@ -16,34 +16,37 @@ for(let i=0;i<allButtons.length;i++){
             transform: 'translate(' + p + 'px)'
         })
         n = index //重置n
-        allButtons.eq(n)
-            .addClass('red')
-            .siblings('.red').removeClass('red')
+        
+        activeButton(allButtons.eq(n))
     })
 }
 
 var n =0
 var size = allButtons.length
-allButtons.eq(n%size).trigger('click')
-    .addClass('red')
-    .siblings('.red').removeClass('red')
 
-var timer = setInterval(()=>{
-    n += 1
-    allButtons.eq(n%size).trigger('click')
+function activeButton($button){
+    $button
         .addClass('red')
         .siblings('.red').removeClass('red')
-},3000)
+}
+function playSlide(index){
+    allButtons.eq(index).trigger('click')
+    activeButton(allButtons.eq(index))
+}
+function setTimer(){
+    return setInterval(() => {
+        n += 1
+        playSlide(n % size)
+    }, 3000)
+}
+playSlide(n % size)
+
+var timer = setTimer()
 
 $('.window').on('mouseenter',function(){
     window.clearInterval(timer)
 })
 
 $('.window').on('mouseleave',function(){
-    timer = setInterval(() => {
-        n += 1
-        allButtons.eq(n % size).trigger('click')
-            .addClass('red')
-            .siblings('.red').removeClass('red')
-    }, 3000)
+    timer = setTimer()
 })
