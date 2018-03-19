@@ -11,8 +11,6 @@ $('.window').on('mouseleave', function () {
 
 
 var whichBtn =1
-
-
 function setTimer() {
     return setInterval(() => {
         whichBtn +=1
@@ -22,7 +20,6 @@ function setTimer() {
                 makeEnter($(e.currentTarget))
             })
         activeButton(getBtn(whichBtn))
-        console.log(getBtn)
         makeCurrent(getImg(n + 1))
         n += 1
     }, 3000)
@@ -65,16 +62,16 @@ function makeEnter($node){
     return $node.removeClass('current leave').addClass('enter')
 }
 
-// var allButtons = $('#buttons > span')
-// for(let i = 0; i  < allButtons.length; i++){
-//     $(allButtons[i]).on('click',function(e){
-//         var index = $(e.currentTarget).index()
-//         whichPic = index
-//         activeButton(allButtons.eq(whichPic))
-//     })
+var allButtons = $('#buttons > span')
+for(let i = 0; i  < allButtons.length; i++){
+    $(allButtons[i]).on('click',function(e){
+        var index = $(e.currentTarget).index()
+        whichPic = index
+        activeButton(allButtons.eq(whichPic))
+    })
 
-// }
-// var whichPic = 0
+}
+
 function activeButton($button){
     $button
         .addClass('black')
