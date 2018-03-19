@@ -1,14 +1,23 @@
 let n 
 init()
-setInterval(()=>{
-    makeLeave(getImg(n))
-        .one('transitionend',(e)=>{
-            makeEnter($(e.currentTarget))
-        })
-    makeCurrent(getImg(n+1))
-    n += 1
-},3000)
+function setTimer(){
+    return setInterval(() => {
+        makeLeave(getImg(n))
+            .one('transitionend', (e) => {
+                makeEnter($(e.currentTarget))
+            })
+        makeCurrent(getImg(n + 1))
+        n += 1
+    }, 3000)
+}
+var timer = setTimer()
 
+$('.window').on('mouseenter',function(){
+    window.clearInterval(timer)
+})
+$('.window').on('mouseleave', function () {
+    timer = setTimer()
+})
 
 
 
