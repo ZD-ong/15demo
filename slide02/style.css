@@ -1,0 +1,69 @@
+.window {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  margin: 30px auto;
+  overflow: hidden;
+}
+
+.window ul,
+.window li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.window .img-ct {
+  position: absolute;
+}
+.window .img-ct:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.window .img-ct>li {
+  float: left;
+}
+.window .img-ct img {
+  width: 400px;
+  height: 300px;
+}
+.window .arrow {
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+.window .pre {
+  left: 10px;
+}
+.window .next {
+  right: 10px;
+}
+.window .button {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  font-size: 0;
+  z-index: 1;
+  text-align: center;
+}
+.window .button > li {
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.window .button > li.active {
+  background-color: #ccc;
+}
