@@ -58,7 +58,7 @@
 .window .button > li {
   display: inline-block;
   width: 30px;
-  height: 2px;
+  height: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin: 0 3px;

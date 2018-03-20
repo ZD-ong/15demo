@@ -1,6 +1,7 @@
 function Carousel($ct){
     this.init($ct)
     this.bind()
+    this.autoPlay()
 }
 
 
@@ -27,30 +28,62 @@ Carousel.prototype = {
         var _this = this
         this.$preBtn.on('click',function(){
             console.log('pre...')
-            _this.playPre()
+            _this.playPre(1)
         })
         this.$nextBtn.on('click',function(){
             console.log('next...')
-            _this.playNext()
+            _this.playNext(1)
         })
         this.$button.on('click',function(){
-            console.log($(this).index())
+            var index = $(this).index()
+            if(_this.index > index){
+                _this.playPre(_this.index - index)
+            }else{
+                _this.playNext(index - _this.index)
+            }
         })
         
 
     },
-    playNext: function(){
+    playNext: function(len){
         var _this = this
-        this.$imgCt.animate({ left: '-=' + this.imgWidth},function(){
-            _this.index++
+        this.$imgCt.animate({ left: '-=' + this.imgWidth*len},function(){
+            _this.index += len
             if(_this.index === _this.imgCount){
                 _this.$imgCt.css({ left: '-' + _this.imgWidth + 'px' })
                 _this.index = 0
             }
+            _this.setButton()
         })
     },
-    playPre: function(){
-
+    playPre: function(len){
+        var _this = this
+        this.$imgCt.animate({left: '+=' + this.imgWidth*len},function(){
+            _this.index -= len
+            if(_this.index < 0){
+                _this.$imgCt.css('left',-_this.imgWidth*_this.imgCount)
+                _this.index = _this.imgCount -1
+            }
+            _this.setButton()
+        })
+    },
+    setButton: function(){
+        this.$button.eq(this.index).addClass('active')
+            .siblings().removeClass('active')
+    },
+    autoPlay: function(){
+        var _this =this
+        var timer = setInterval(function(){
+            _this.playNext(1)
+        },1000)
+        $('.window').on('mouseenter', function () {
+            window.clearInterval(timer)
+        })
+        $('.window').on('mouseleave', function () {
+            timer = setInterval(function () {
+                _this.playNext(1)
+            }, 1000)
+        })
     }
 }
 
