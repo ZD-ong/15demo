@@ -10,7 +10,8 @@ $('.window').on('mouseleave', function () {
 
 
 
-var whichBtn =1
+var whichBtn =n
+var whichPic =n
 function setTimer() {
     return setInterval(() => {
         whichBtn +=1
@@ -26,12 +27,19 @@ function setTimer() {
 }
 
 var length = $('.images > img').length
+// function x(n){
+//     if(n > length){
+//         n = n%length
+//         if(n === 0){
+//             n = length
+//         }
+//     }
+//     return n
+// }
+
 function x(n){
-    if(n > length){
-        n = n%length
-        if(n === 0){
-            n = length
-        }
+    if(n>length){
+        n = 1
     }
     return n
 }
@@ -67,7 +75,14 @@ for(let i = 0; i  < allButtons.length; i++){
     $(allButtons[i]).on('click',function(e){
         var index = $(e.currentTarget).index()
         whichPic = index
+        whichBtn = index
+        n = index
         activeButton(allButtons.eq(whichPic))
+        makeLeave(getImg(whichPic))
+            .one('transitionend', (e) => {
+                makeEnter($(e.currentTarget))
+            })
+        makeCurrent(getImg(whichPic + 1))
     })
 
 }
