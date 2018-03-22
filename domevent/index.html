@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .popover {
+            border: 1px solid red;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            padding: 10px;
+            margin-left: 20px;
+            display: none;
+            background-color: white;
+        }
+
+        .popover:before {
+            content: '';
+            border: 10px solid transparent;
+            border-right-color: red;
+            position: absolute;
+            top: 5px;
+            right: 100%;
+        }
+
+        .popover:after {
+            content: '';
+            border: 10px solid transparent;
+            border-right-color: white;
+            position: absolute;
+            top: 5px;
+            right: 100%;
+            margin-right: -1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper" id="wrapper">
+        <button id="clickMe">点击</button>
+        <div class="popover" id="popover">
+            <input type="checkbox">浮层</div>
+    </div>
+    <script>
+    var pop = true
+        $(clickMe).on('click', function (e) {
+            if (pop) {
+                $(popover).show()
+                pop = false
+            } else {
+                $(popover).hide()
+                pop = true
+            }
+            $(document).one('click', function () {
+                $(popover).hide()
+            })
+        })
+        $(wrapper).on('click', function (e) {
+            e.stopPropagation()
+        })
+
+    </script>
+</body>
+
+</html>
